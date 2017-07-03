@@ -1,0 +1,4 @@
+Flask
+requests
+oauth2client
+sqlalchemy
