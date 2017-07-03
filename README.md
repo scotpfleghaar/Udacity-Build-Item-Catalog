@@ -19,14 +19,14 @@ Developed an application that provides a list of items within a variety of categ
 
 First, you'll need all the related dependacies:
 ```
- $ pip install -r setup.txt
+  $ pip install -r setup.txt
 ```
 Next, you'll need to load the information from the database:
 ```
- $ python database_setup.py
+  $ python database_setup.py
 ```
 ```
- $ python lotsofmenus.py
+  $ python lotsofmenus.py
 ```
 
 
@@ -45,7 +45,7 @@ Then Log into this using command:
   ```
   Next, Change directory to vagrant:
   ```
-   $ cd /vagrant
+    $ cd /vagrant
   ```
   Run 
   ```
