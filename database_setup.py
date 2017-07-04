@@ -1,6 +1,6 @@
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, backref
 from sqlalchemy import create_engine
 
 Base = declarative_base()
@@ -43,7 +43,8 @@ class MenuItem(Base):
     restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
     restaurant = relationship(Restaurant)
     user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship(User)
+    category = relationship(Restaurant, backref=backref('menu_item', cascade='all, delete'))
+    user = relationship(User, backref="menu_item")
 
     @property
     def serialize(self):

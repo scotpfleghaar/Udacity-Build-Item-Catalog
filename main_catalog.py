@@ -25,6 +25,7 @@ from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 
 from database_setup import Base, Restaurant, MenuItem, User
+from functools import wraps
 
 
 # In the official quickstart this was the recommeded way to create an instance
@@ -153,6 +154,16 @@ def gconnect():
 
 # User Helper Functions
 
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'username' in login_session:
+            return f(*args, **kwargs)
+        else:
+            flash("You must to be logged in to add a item.")
+            return redirect(url_for('showLogin'))
+    return decorated_function
+
 
 def createUser(login_session):
     newUser = User(name=login_session['username'], email=login_session[
@@ -235,6 +246,7 @@ def showRestaurants():
 
 
 @app.route('/restaurant/new/', methods=['GET', 'POST'])
+@login_required
 def newRestaurant():
     if 'username' not in login_session:
         return redirect('/login')
@@ -252,6 +264,7 @@ def newRestaurant():
 
 
 @app.route('/restaurant/<int:restaurant_id>/edit/', methods=['GET', 'POST'])
+@login_required
 def editRestaurant(restaurant_id):
     editedRestaurant = session.query(
         Restaurant).filter_by(id=restaurant_id).one()
@@ -275,6 +288,7 @@ def editRestaurant(restaurant_id):
 # Delete a restaurant
 @app.route('/restaurant/<int:restaurant_id>/delete/',
            methods=['GET', 'POST'])
+@login_required
 def deleteRestaurant(restaurant_id):
     restaurantToDelete = session.query(
         Restaurant).filter_by(id=restaurant_id).one()

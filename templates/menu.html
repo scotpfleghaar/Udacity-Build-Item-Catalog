@@ -57,8 +57,8 @@
             <h3>{{i.name}}</h3>
             <p>{{i.description}}</p>
             <p class="menu-price">{{i.price}}</p>
-            <a href='{{url_for(' editMenuItem ', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Edit</a> |
-            <a href='{{url_for(' deleteMenuItem ', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Delete</a>
+            <a href='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Edit</a> |
+            <a href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Delete</a>
         </div>
         {% endif %} {% endfor %}
     </div>
@@ -69,8 +69,8 @@
             <h3>{{i.name}}</h3>
             <p>{{i.description}}</p>
             <p class="menu-price">{{i.price}}</p>
-            <a href='{{url_for(' editMenuItem ', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Edit</a> |
-            <a href='{{url_for(' deleteMenuItem ', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Delete</a>
+            <a href='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Edit</a> |
+            <a href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Delete</a>
         </div>
         {% endif %} {% endfor %}
     </div>
@@ -81,8 +81,8 @@
             <h3>{{i.name}}</h3>
             <p>{{i.description}}</p>
             <p class="menu-price">{{i.price}}</p>
-            <a href='{{url_for(' editMenuItem ', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Edit</a> |
-            <a href='{{url_for(' deleteMenuItem ', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Delete</a>
+            <a href='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Edit</a> |
+            <a href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Delete</a>
         </div>
         {% endif %} {% endfor %}
         <h2>Beverages</h2>
@@ -91,8 +91,8 @@
             <h3>{{i.name}}</h3>
             <p>{{i.description}}</p>
             <p class="menu-price">{{i.price}}</p>
-            <a href='{{url_for(' editMenuItem ', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Edit</a> |
-            <a href='{{url_for(' deleteMenuItem ', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Delete</a>
+            <a href='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Edit</a> |
+            <a href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id=i.id ) }}'>Delete</a>
         </div>
         {% endif %} {% endfor %}
     </div>
