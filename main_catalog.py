@@ -248,8 +248,8 @@ def showRestaurants():
 @app.route('/restaurant/new/', methods=['GET', 'POST'])
 @login_required
 def newRestaurant():
-    if 'username' not in login_session:
-        return redirect('/login')
+    #  if 'username' not in login_session:
+    #   return redirect('/login')
     if request.method == 'POST':
         newRestaurant = Restaurant(
             name=request.form['name'], user_id=login_session['user_id'])
@@ -344,7 +344,7 @@ def newMenuItem(restaurant_id):
         are not authorized to add menu items to this restaurant.
         Please create your own restaurant in order to add items.
         ');}</script><body onload='myFunction()''>"'''
-        if request.method == 'POST':
+    if request.method == 'POST':
             newItem = MenuItem(name=request.form['name'],
                                description=request.form['description'],
                                price=request.form['price'],
